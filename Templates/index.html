@@ -1,0 +1,11 @@
+<h1>Öğe Listesi</h1>
+<ul>
+{% for item in items %}
+    <li>
+        {{ item.name }} - {{ item.description }}
+        [<a href="/update/{{ item.id }}">Düzenle</a>]
+        [<a href="/delete/{{ item.id }}">Sil</a>]
+    </li>
+{% endfor %}
+</ul>
+<a href="/create">Yeni Öğe Ekle</a>
