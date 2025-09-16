@@ -48,12 +48,20 @@ def update(id):
     return render_template('update.html', item=item)
 
 # --- ROUTE: ÖĞEYİ SİL ---
-@app.route('/delete/<int:id>')
-def delete(id):
+
+@app.route('/delete/<int:id>', methods=['POST'])
+def delete_task(id):
     item = Item.query.get_or_404(id)
     db.session.delete(item)
     db.session.commit()
     return redirect('/')
+    # --- ROUTE: ÖĞEYİ SİL 
+  # ---@app.route('/delete/<int:id>')
+  # ---def delete(id):
+      # ---item = Item.query.get_or_404(id)
+      # ---db.session.delete(item)
+      # ---db.session.commit()
+      # ---return redirect('/')
 
 # --- SERVERI BAŞLAT ---
 if __name__ == '__main__':

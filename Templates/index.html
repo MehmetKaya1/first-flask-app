@@ -1,11 +1,11 @@
 <h1>Öğe Listesi</h1>
 <ul>
 {% for item in items %}
-    <li>
-        {{ item.name }} - {{ item.description }}
-        [<a href="/update/{{ item.id }}">Düzenle</a>]
-        [<a href="/delete/{{ item.id }}">Sil</a>]
-    </li>
+<li>{{ item.name }} - {{ item.description }}
+<form action="{{ url_for('delete_task', id=item.id) }}" method="post" style="display:inline;">
+    <button type="submit">Sil</button>  
+</form>
+<a href="{{ url_for('update', id=item.id) }}"><button type="submit">Güncelle</button></a></li>
 {% endfor %}
 </ul>
 <a href="/create">Yeni Öğe Ekle</a>
