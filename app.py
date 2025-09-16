@@ -54,7 +54,7 @@ def delete(id):
     db.session.delete(item)
     db.session.commit()
     return redirect('/')
-    
+
 # --- SERVERI BAŞLAT ---
 if __name__ == '__main__':
     app.run(debug=True)
